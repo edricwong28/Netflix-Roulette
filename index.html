@@ -1,0 +1,210 @@
+<!DOCTYPE <html></html>
+<head>
+<title>Netflix Roulette</title>
+<html lang="en-us">
+	
+	<meta charset="UTF-8">
+	<link href="reset.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<!-- <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script> -->
+	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+	<!-- <script src="assets/javascript/script.js"></script> -->
+	<!-- <script src="assets/javascript/weatherScript.js"></script> -->
+	<!-- <script src="assets/javascript/netFlixscript.js"></script> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!--  GOOGLE FONTS -->
+	<link href=“https://fonts.googleapis.com/css?family=Oswald|Quantico|PT+Sans|Fjalla+One rel=“stylesheet”>
+	
+	
+</head>
+<body>
+
+		<nav class="nav-extended2">
+			<br>
+			<h5 id="logo1"><b>NETFLIX ROULETTE</b></h5>
+		</nav>
+
+		<div class="container white z-depth-0">
+	<ul class="tabs red">
+		<li class="tab col s3"><a class="white-text active" href="#login">login</a></li>
+		<li class="tab col s3"><a class="white-text" href="#register">register</a></li>
+	</ul>
+	<div id="login" class="col s12">
+		<form class="col s12">
+			<div class="form-container">
+				<h3 class="red-text">Hello</h3>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="login_email" type="email" class="validate">
+						<label for="login_email">Email</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="login_password" type="password" class="validate">
+						<label for="login_password">Password</label>
+					</div>
+				</div>
+				<br>
+				<center>
+					<button id ="loginbtn" class="btn waves-effect waves-light red" type="submit" name="action">Connect</button>
+					<br>
+					<br>
+					<a href="">Forgot password?</a>
+				</center>
+			</div>
+		</form>
+	</div>
+	<div id="register" class="col s12">
+		<form class="col s12">
+			<div class="form-container">
+				<h3 class="red-text">Welcome</h3>
+		
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email" type="email" class="validate">
+						<label for="email">Email</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password" type="password" class="validate">
+						<label for="password">Password</label>
+					</div>
+				</div>
+		
+				<center>
+					<button id ="signupbtn" class="btn waves-effect waves-light red" type="submit" name="action">Submit</button>
+				</center>
+			</div>
+		</form>
+	</div>
+</div>
+	
+	
+	<!-- FIRST PARALLAX IMAGE -->
+	<div class="parallax-container">
+		<div class="parallax"><img src="netflixBackground.jpg"></div>
+	</div>
+	
+	<h3 id="picks">Your Picks</h3>
+	<!-- Results-->
+		<div id="results"></div>
+
+		<div id="main-carousel" class="carousel">
+			<!-- <a class="carousel-item carousel-item-custom" href="#one!"></a> -->
+		</div>
+		<br><br><br>
+		<table class = "container" id='weatherTable'>
+			<thead>
+				<tr>
+					<th>City</th>
+					<th>Temperature</th>
+					<th>Weather</th>
+					<th>Description</th>
+					<th>Icon</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="1"></td>
+					<td id="2"></td>
+					<td id="3"></td>
+					<td id="4"></td>
+					<td id="5"></td>
+				</tr>
+			</tbody>
+		</table>
+
+	<br>
+	<h6 class="container" id="h6">Enter the name of your current city and the actor/actress you wish to see below, and Netflix Roulette will provide you options based on your current location's weather conditions!</h6>
+	<!-- Entry Form -->
+	<div class="section white">
+		<div class="row container">
+			<section id="section" class="container">
+
+				<div class="input-field">
+					<div class="row">
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s12">
+									<label for="city" style= "font-size: 24px">City</label>
+									<input class="form-control" id="city" type="text">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="row">
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s12">
+									<label for="actor" style= "font-size: 24px">Actor</label>
+									<input class="form-control" id="actor" type="text">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				
+				<br>
+
+				<a id="submitbtn" class="waves-effect waves-light red btn" href="#modal1">Submit</a>
+
+								<!-- MODAL POPUP -->
+			  <div id="modal1" class="modal">
+			    <div class="modal-content">
+			      <h3>Success!</h3>
+			      <p></p>
+			    </div>
+			    <div class="modal-footer">
+			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			    </div>
+			  </div>
+			
+
+			</section>
+		</div>
+	</div>
+	
+	<!-- SECOND PARALLAX IMAGE -->
+	<div class="parallax-container">
+		<div class="parallax"><img src="netflixBackground.jpg"></div>
+	</div>
+	
+	
+		<!-- FOOTER -->
+		<footer class="page-footer" id="page-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Thanks for stopping by!</h5>
+						<p class="grey-text text-lighten-4">If you want to check out some of our other projects find us on GitHub --> </p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Click on a name: </h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="https://github.com/edricwong28">Edric Wong</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Monica Bedon</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Daniel Gallivan</a></li>
+							<li><a class="grey-text text-lighten-3" href="https://github.com/hayitsmenadine">Nadine Fernandez</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2017 Copyright Fernandez/Gallivan/Bedon/Wong
+				</div>
+			</div>
+		</footer>
+<!-- JavaScript -->
+<script src="assets/javascript/script.js"></script>
+</body>
+</html>
